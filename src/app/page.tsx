@@ -15,6 +15,7 @@ import Link from "next/link";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { ProductCard } from "@/components/product-card";
 import { products } from "@/data/products";
+import { getSiteUrl } from "@/lib/site";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
 
 const categoryCards = [
@@ -78,7 +79,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "VPP Store",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    url: getSiteUrl(),
     description: "Loja demonstrativa de moda feminina contemporânea.",
   };
 

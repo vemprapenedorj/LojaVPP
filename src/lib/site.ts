@@ -1,0 +1,18 @@
+export function getSiteUrl(): string {
+  const customUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (customUrl) {
+    return customUrl.startsWith("http://") || customUrl.startsWith("https://")
+      ? customUrl
+      : `https://${customUrl}`;
+  }
+
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  return "http://localhost:3000";
+}

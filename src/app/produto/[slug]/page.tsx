@@ -12,6 +12,7 @@ import { ProductCard } from "@/components/product-card";
 import { ProductPurchasePanel } from "@/components/product/product-purchase-panel";
 import { getProductBySlug, products } from "@/data/products";
 import { formatCurrency } from "@/lib/format";
+import { getSiteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -50,7 +51,7 @@ export default async function ProductPage({
   const relatedProducts = products
     .filter((item) => item.id !== product.id)
     .slice(0, 4);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteUrl = getSiteUrl();
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
