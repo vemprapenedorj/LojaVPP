@@ -1,0 +1,5 @@
+interface:
+  display_name: "VPP Store"
+  short_description: "Identidade visual da VPP Store"
+  brand_color: "#173E36"
+  default_prompt: "Use $vpp-store para criar uma interface de e-commerce de moda consistente com a identidade do projeto."
